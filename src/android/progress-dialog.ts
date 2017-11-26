@@ -39,6 +39,11 @@ export class LoadingIndicator {
           if (options.android.cancelListener && typeof options.android.cancelListener === 'function') {
             this._progressDialog.setOnCancelListener(this.createOnCancelListener(options.android.cancelListener));
           }
+          if(options.android.customIndeterminateDrawable) {
+            var appl = application.getNativeApplication();
+            var drawableId = appl.getResources().getIdentifier(options.android.customIndeterminateDrawable, 'drawable', appl.getPackageName());
+            this._progressDialog.setIndeterminateDrawable(appl.getResources().getDrawable(drawableId));
+          }
         }
       }
       return this._progressDialog;

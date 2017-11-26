@@ -7,6 +7,7 @@ export interface OptionsAndroid {
   progressStyle?: number;
   secondaryProgress?: number;
   cancelListener?: (dialog: any) => void;
+  customIndeterminateDrawable?: string;
 }
 
 export interface OptionsIOS {
